@@ -4,11 +4,11 @@
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Imagemanager.js : A easy to use, small and standalone but powerful and complex library that gives you amazing control of your image assets by preloading, caching and managing it." />
+    <meta name="description" content="ImageManager.js : An easy to use, small and standalone but powerful and complex library that gives you amazing control of your image assets by preloading, caching and managing it." />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Imagemanager.js</title>
+    <title>ImageManager.js</title>
   </head>
 
   <body>
@@ -18,8 +18,8 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/gfcarvalho/ImageManager.js">View on GitHub</a>
 
-          <h1 id="project_title">Imagemanager.js</h1>
-          <h2 id="project_tagline">A easy to use, small and standalone but powerful and complex library that gives you amazing control of your image assets by preloading, caching and managing it.</h2>
+          <h1 id="project_title">ImageManager.js</h1>
+          <h2 id="project_tagline">An easy to use, small and standalone but powerful and complex library that gives you amazing control of your image assets by preloading, caching and managing it.</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/gfcarvalho/ImageManager.js/zipball/master">Download this project as a .zip file</a>
@@ -32,57 +32,101 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h3>
-<a name="image-manager" class="anchor" href="#image-manager"><span class="octicon octicon-link"></span></a>Image Manager</h3>
+<a name="imagemanagerjs" class="anchor" href="#imagemanagerjs"><span class="octicon octicon-link"></span></a>ImageManager.js</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p><a href="https://codeclimate.com/github/gfcarvalho/ImageManager.js"><img src="https://codeclimate.com/github/gfcarvalho/ImageManager.js.png" alt="Code Climate"></a></p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<p>By <a href="@gfcarvalho">Gustavo Carvalho</a></p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>Get total control of the images on your page !</p>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<ul>
+<li>Tag loading and eased progress information</li>
+<li>Event oriented</li>
+<li>After loaded, all images will be accessible through a cache object</li>
+<li>Create independent load tasks</li>
+</ul><h3>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example:</h3>
+
+<p>Preload a set of images, show the loading progress using the progress element and draw it on a canvas when load finishes:</p>
+
+<div class="highlight highlight-js"><pre>    <span class="kd">var</span> <span class="nx">images</span> <span class="o">=</span> <span class="p">[{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">"bkg"</span><span class="p">,</span>
+        <span class="nx">src</span><span class="o">:</span> <span class="s2">"img/background.png"</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">"frg"</span><span class="p">,</span>
+        <span class="nx">src</span><span class="o">:</span> <span class="s2">"img/foreground.png"</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">"player"</span><span class="p">,</span>
+        <span class="nx">src</span><span class="o">:</span> <span class="s2">"img/player.png"</span>
+    <span class="p">}];</span>
+
+    <span class="kd">var</span> <span class="nx">progressElem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'progress'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">canvasContext</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'canvas'</span><span class="p">).</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">'2d'</span><span class="p">);</span>
+
+    <span class="kd">function</span> <span class="nx">onComplete</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">status</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">status</span><span class="p">;</span> <span class="c1">// OK : all images successfully downloaded,</span>
+                               <span class="c1">// FAIL : one or more image has failed to download      </span>
+                               <span class="c1">// ABORTED : one or more images weren't downloaded because user clicked on X button</span>
+
+        <span class="kd">var</span> <span class="nx">cache</span> <span class="o">=</span> <span class="nx">ImageManager</span><span class="p">.</span><span class="nx">cache</span><span class="p">;</span> <span class="c1">// retrieve the cache</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">status</span> <span class="o">===</span> <span class="nx">ImageManager</span><span class="p">.</span><span class="nx">OK</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// draw images on canvas</span>
+            <span class="nx">canvasContext</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">cache</span><span class="p">.</span><span class="nx">bkg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+            <span class="nx">canvasContext</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">cache</span><span class="p">.</span><span class="nx">frg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+            <span class="nx">canvasContext</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">cache</span><span class="p">.</span><span class="nx">player</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// notify the user and ask to reload the page</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">confirm</span><span class="p">(</span><span class="s1">'Error on load images. Reload the page to try again?'</span><span class="p">))</span> <span class="p">{</span>
+                <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">onProgress</span><span class="p">(</span><span class="nx">progress</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">progressElem</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">progress</span><span class="p">;</span>
+        <span class="nx">progressElem</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'Loading...'</span> <span class="o">+</span> <span class="nx">progress</span> <span class="o">+</span> <span class="s1">'%'</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">ImageManager</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="nx">images</span><span class="p">,</span> <span class="nx">onComplete</span><span class="p">,</span> <span class="nx">onProgress</span><span class="p">);</span> <span class="c1">// start the loading process</span>
+
+</pre></div>
 
 <h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<a name="future" class="anchor" href="#future"><span class="octicon octicon-link"></span></a>Future</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>Online documentation and much more examples will come soon.</p>
 
 <h3>
 <a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>Having trouble with ImageManager.js? Since the online documentation is not ready please contact <a href="mailto:gfcarv@gmail.com">gfcarv@gmail.com</a> and I’ll help you sort it out.</p>
       </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Imagemanager.js maintained by <a href="https://github.com/gfcarvalho">gfcarvalho</a></p>
+        <p class="copyright">ImageManager.js maintained by <a href="https://github.com/gfcarvalho">gfcarvalho</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
 
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-49344056-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
 
-  ga('create', 'UA-49344056-1', 'gfcarvalho.github.io');
-  ga('send', 'pageview');
-
-</script>
 
   </body>
 </html>
