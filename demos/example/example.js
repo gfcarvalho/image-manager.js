@@ -1,21 +1,14 @@
-ImageManager.js
-===================
+/*jslint indent: 4 */
+/*jslint white: false */
+/*jslint browser: true */
+/*jslint devel: true */
+/*jslint vars: true */
 
-A easy to use, small and standalone but powerful and complex library that gives you amazing control of your image assets by preloading, caching and managing it.
+(function (global) {
+    "use strict";
+    
+    var ImageManager = global.ImageManager; // import ImagerManager to the local scope
 
-Get total control of the images on your page by using ***ImageManager.js***.
-
-##Features
-- Tag loading and eased progress information
-- Event oriented
-- After loaded, all images will be accessible through a cache object
-- Create independent load tasks
-
-##Examples:
-
-Preload a set of images, show the loading progress using the progress element and draw it on a canvas when load finishes:
-
-```js 
     var images = [{
         name: "bkg",
         src: "img/background.png"
@@ -40,11 +33,11 @@ Preload a set of images, show the loading progress using the progress element an
         if (status === ImageManager.OK) {
             // draw images on canvas
             canvasContext.drawImage(cache.bkg, 0, 0);
-            canvasContext.drawImage(cache.frg, 0, 300);
-            canvasContext.drawImage(cache.player, 50, 400);
+            canvasContext.drawImage(cache.frg, 0, 0);
+            canvasContext.drawImage(cache.player, 60, 180);
         } else {
             // notify the user and ask to reload the page
-            if(confirm('Error on load images. Reload the page to try again?')) {
+            if (confirm('Error on load images. Reload the page to try again?')) {
                 window.location.reload();
             }
         }
@@ -56,6 +49,5 @@ Preload a set of images, show the loading progress using the progress element an
     }
 
     ImageManager.load(images, onComplete, onProgress); // start the loading process
-    
-```
 
+}(this));
