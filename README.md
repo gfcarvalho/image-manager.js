@@ -1,8 +1,8 @@
-ImageManager.js
+[ImageManager.js](http://gfcarvalho.github.io/ImageManager.js/)
 ===================
 [![Code Climate](https://codeclimate.com/github/gfcarvalho/ImageManager.js.png)](https://codeclimate.com/github/gfcarvalho/ImageManager.js)
 
-By Gustavo Carvalho
+By Gustavo Carvalho (@gfcarvalho)
 
 ImageManager.js is an easy to use, small and standalone but powerful and complex library that gives you amazing control of your image assets by preloading, caching and managing it.
 
