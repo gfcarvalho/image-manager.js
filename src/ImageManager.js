@@ -331,7 +331,7 @@
         /**
          * Creates a new Image tag as a copy of an image in cache
          */
-        function cloneImage(name) {
+        function cloneImage(name) { // TODO: allow an Image as parameter 
             var img = new Image();
             if (cache.hasOwnProperty(name)) {
                 img.name = cache[name].name;
