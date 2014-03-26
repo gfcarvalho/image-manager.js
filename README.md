@@ -1,4 +1,4 @@
-ImageManager.js
+[ImageManager.js](http://gfcarvalho.github.io/ImageManager.js/)
 ===================
 [![Code Climate](https://codeclimate.com/github/gfcarvalho/ImageManager.js.png)](https://codeclimate.com/github/gfcarvalho/ImageManager.js)
 
@@ -43,8 +43,8 @@ Preload a set of images, show the loading progress using the progress element an
         if (status === ImageManager.OK) {
             // draw images on canvas
             canvasContext.drawImage(cache.bkg, 0, 0);
-            canvasContext.drawImage(cache.frg, 0, 300);
-            canvasContext.drawImage(cache.player, 50, 400);
+            canvasContext.drawImage(cache.frg, 0, 0);
+            canvasContext.drawImage(cache.player, 60, 180);
         } else {
             // notify the user and ask to reload the page
             if(confirm('Error on load images. Reload the page to try again?')) {
@@ -62,3 +62,4 @@ Preload a set of images, show the loading progress using the progress element an
     
 ```
 
+[Live example](https://dl.dropboxusercontent.com/u/37981960/github/ImageManager.js/demos/example/index.html)
