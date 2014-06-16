@@ -1,0 +1,45 @@
+{
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-qunit": "~0.3.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.7"
+  },
+  "name": "image-manager",
+  "title": "ImageManager.js",
+  "description": "ImageManager, a Javascript HTML5 Image library",
+  "version": "0.1.0",
+  "main": "dist/image-manager.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gfcarvalho/image-manager.js.git"
+  },
+  "keywords": [
+    "html5",
+    "image",
+    "library",
+    "preload",
+    "cache"
+  ],
+  "author": {
+    "name": "Gustavo Carvalho",
+    "e-mail": "gfcarv@gmail.com",
+    "url": "http://gustavocarvalho.eti.br"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gfcarvalho/image-manager.js/issues"
+  },
+  "homepage": "http://gustavocarvalho.eti.br/image-manager.js"
+}

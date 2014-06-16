@@ -1,4 +1,6 @@
-/*jslint vars: true */
+/*! ImageManager.js - v0.1.0 - 2014-06-16
+* http://gustavocarvalho.eti.br/image-manager.js
+* Copyright (c) 2014 Gustavo Carvalho; Licensed under MIT */
 /*jslint indent: 4 */
 /*jslint white: false */
 /*jslint browser: true */
@@ -445,22 +447,22 @@
             cloneImage : cloneImage,
             clear : clear,
             cache : cache,
-            remove : removeFromCache
-            //debugMode : debugMode
+            remove : removeFromCache,
+            debugMode : debugMode
         };
 
     }());
 
     // AMD, CommonJS and Window support
-    if (typeof define === 'function') {
+    /*if (typeof define === 'function') {
         define([], function () {
             return ImageManager;
         });
     } else if (typeof module !== 'undefined' && module.exports) {
         module.exports = ImageManager;
-    } else if (typeof global.ImageManager === 'undefined') {
-        global.ImageManager = ImageManager;
-    }
+    } else if (typeof global.ImageManager === 'undefined') {*/
+    global.ImageManager = ImageManager;
+    //}
 
 // get at whatever the global object is, like window in browsers
 }((function () { return this; }())));
