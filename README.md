@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/gfcarvalho/image-manager.js.svg?branch=master)](https://travis-ci.org/gfcarvalho/image-manager.js)
 [![Code Climate](https://codeclimate.com/github/gfcarvalho/ImageManager.js.png)](https://codeclimate.com/github/gfcarvalho/ImageManager.js)
 
-By Gustavo Carvalho
+By [Gustavo Carvalho](http://gustavocarvalho.eti.br)
 
 ImageManager.js is an easy to use, small and standalone but powerful and complex library that gives you amazing control of your image assets by preloading, caching and managing it.
 
@@ -17,7 +17,7 @@ Get total control of the images on your page by using ***ImageManager.js***.
 
 ##Examples:
 
-Preload a set of images, show the loading progress using the progress element and draw it on a canvas when load finishes:
+Preload a set of images, show the loading progress using the progress element and draw it on a canvas when load finishes. [View Demo](http://gustavocarvalho.eti.br/image-manager.js/demos/canvas).
 
 ```js 
 var images = [{
@@ -63,4 +63,4 @@ ImageManager.load(images, onComplete, onProgress); // start the loading process
     
 ```
 
-[Live example](https://dl.dropboxusercontent.com/u/37981960/github/ImageManager.js/demos/example/index.html)
+[View Demo](http://gustavocarvalho.eti.br/image-manager.js/demos/canvas)
