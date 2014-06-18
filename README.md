@@ -1,7 +1,7 @@
 [ImageManager.js](http://gfcarvalho.github.io/ImageManager.js/)
 ===================
 [![Build Status](https://travis-ci.org/gfcarvalho/image-manager.js.svg?branch=master)](https://travis-ci.org/gfcarvalho/image-manager.js)
-[![Code Climate](https://codeclimate.com/github/gfcarvalho/ImageManager.js.png)](https://codeclimate.com/github/gfcarvalho/ImageManager.js)
+[![Code Climate](https://codeclimate.com/github/gfcarvalho/image-manager.js.png)](https://codeclimate.com/github/gfcarvalho/image-manager.js)
 
 By [Gustavo Carvalho](http://gustavocarvalho.eti.br)
 
