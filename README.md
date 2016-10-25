@@ -17,7 +17,7 @@ Get total control of the images on your page by using ***ImageManager.js***.
 
 ##Examples:
 
-Preload a set of images, show the loading progress using the progress element and draw it on a canvas when load finishes. [View Demo](http://gustavocarvalho.eti.br/image-manager.js/demos/canvas)
+Preload a set of images, show the loading progress using the progress element and draw it on a canvas when load finishes. [View Demo](http://gh.gustavocarvalho.eti.br/image-manager.js/demos/canvas)
 
 ```js 
 var images = [{
@@ -63,4 +63,4 @@ ImageManager.load(images, onComplete, onProgress); // start the loading process
     
 ```
 
-[View Demo](http://gustavocarvalho.eti.br/image-manager.js/demos/canvas)
+[View Demo](http://gh.gustavocarvalho.eti.br/image-manager.js/demos/canvas)
